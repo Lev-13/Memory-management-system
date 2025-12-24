@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../allocator/memory.hpp"
 #include <vector>
-
+#include <string>
 using namespace std ;
 
 struct cli{
