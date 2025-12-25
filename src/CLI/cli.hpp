@@ -1,5 +1,4 @@
 #include <iostream>
-#include "../allocator/memory.hpp"
 #include "../cache/cache.hpp"
 #include <vector>
 #include <string>
@@ -52,12 +51,14 @@ struct cli{
             if( split[ 0 ] == "set" ){
                 if( split[ 2 ][ 0 ] == 'f' ) allocator = 1 ;
                 if( split[ 2 ][ 0 ] == 'b' ) allocator = 2 ;
-                if( split[ 2 ][ 0 ] == 'w' ) allocator = 3 ;   
+                if( split[ 2 ][ 0 ] == 'w' ) allocator = 3 ;
+                cout << "Allocator set" << endl ;   
             }
             if( split[ 0 ] == "malloc" ){
                 if( allocator == 1 ) memory->first_fit( stoi( split[ 1 ] ) ) ;
                 if( allocator == 2 ) memory->best_fit( stoi( split[ 1 ] ) ) ;
                 if( allocator == 3 ) memory->worst_fit( stoi( split[ 1 ] ) ) ;
+                cout << "Allocated memory" << endl ;
             }
             if( split[ 0 ] == "free" ){
                 memory->free_memory( stoi(  split[ 1 ] ) ) ;

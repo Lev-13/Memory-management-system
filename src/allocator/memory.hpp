@@ -173,9 +173,10 @@ struct Memory{
                 }
                 if( before != NULL && before->flag == 1 ){
                     before->Size += node->Size ;
-                    before->next = node ;
+                    before->next = node->next ;
                     if( node->next != NULL ) node->next->prev = before ;
                     delete node ;
+                    break ;
                 }
             }
             node = node->next ;
