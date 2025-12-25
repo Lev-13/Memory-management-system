@@ -25,6 +25,9 @@ struct cachelevel{
     int Blocksize ;
     int associativity ;
 
+    int hits = 0 ;
+    int misses = 0 ;
+
     Memory* memory  ;
 
     int sets ;
@@ -79,7 +82,15 @@ struct cachelevel{
             }
         }
 
+        if( found ) hits ++ ;
+        else misses ++ ;
         return found ;
+    }
+
+    double hit_ratio(){
+        if( hits + misses == 0 ) return 0.0 ;
+        
+        return ( double )hits / ( hits + misses ) ;
     }
 
 
