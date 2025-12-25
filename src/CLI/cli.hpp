@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../allocator/memory.hpp"
+#include "../cache/cache.hpp"
 #include <vector>
 #include <string>
 using namespace std ;
@@ -33,11 +34,13 @@ struct cli{
         
         int allocator = 1 ;
         Memory* memory = NULL ;
+        cachelevel* l1_cache = NULL ;
+        cachelevel* l2_cache = NULL ;
 
         while( getline( cin , cmd ) ){
             
             if( cmd == "exit" ){
-                cout << "Exiting..." << endl ;
+                cout << "End" << endl ;
                 break; 
             }
             
@@ -65,6 +68,83 @@ struct cli{
             if( split[ 0 ] == "stats" ){
                 memory->stats() ;
             }
+
+            if( split[ 0 ] == "init" && split[ 1]  == "cache" ){
+                string s ;
+                
+                int Size ;
+                int Block_size ;
+                int associativity ;
+                
+                if( split[ 2 ] == "1" ){
+
+                    cout << "Enter Cache size" << endl ;
+                    getline( cin , s ) ;
+                    Size = stoi( s ) ;
+
+                    cout << "Enter Block Size " << endl ;
+                    getline( cin , s ) ;
+                    Block_size = stoi( s ) ;
+
+                    cout << "Enter associativity" << endl ;
+                    getline( cin , s ) ;
+                    associativity = stoi ( s ) ;
+
+                    l1_cache = new cachelevel( Size , Block_size , associativity , memory ) ;
+
+                }
+                if( split[ 2 ] == "2" ){
+                    
+                    cout << "Enter Cache size" << endl ;
+                    getline( cin , s ) ;
+                    Size = stoi( s ) ;
+
+                    cout << "Enter Block Size " << endl ;
+                    getline( cin , s ) ;
+                    Block_size = stoi( s ) ;
+
+                    cout << "Enter associativity" << endl ;
+                    getline( cin , s ) ;
+                    associativity = stoi ( s ) ;
+
+                    l2_cache = new cachelevel( Size , Block_size , associativity , memory ) ;
+
+                }
+
+            }
+            
+            if( split[ 0 ] == "read" ){
+
+                int address = stoi( split[ 1 ] ) ;
+
+                if( l1_cache != NULL ){
+                    if( l1_cache->read( address ) ){
+                        cout << "Found in l1 cache" << endl ;
+                    }
+                    else{
+                        if( l2_cache != NULL ){
+                            if( l2_cache->read( address ) ){
+                                cout << "Found in l2 cache" << endl ; 
+                            }
+                        }
+                        else{
+                            cout << "Found in memory" << endl ;
+                        }
+                    }
+                }
+                else{
+                    if( l2_cache != NULL ){
+                        if( l2_cache->read( address ) ){
+                            cout << "Found in l2 cache" << endl ; 
+                        }
+                    }
+                    else{
+                        cout << "Found in memory" << endl ;
+                    }
+                }
+
+            }
+
         }
 
 
