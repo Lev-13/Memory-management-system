@@ -87,6 +87,22 @@ struct cachelevel{
         return found ;
     }
 
+    void cache_flush( int address ){
+
+        int set = (address >> offset_bits) & ( ( 1 << set_bits ) - 1) ;
+
+        int tag = address >> ( offset_bits + set_bits ) ;
+
+        deque<cacheline> *row = &cache[set];
+		for (auto it = row->begin(); it != row->end(); it++) {
+			if (it->tag == tag) {
+				row->erase(it);
+				return;
+			}
+		}
+
+    }
+
     double hit_ratio(){
         if( hits + misses == 0 ) return 0.0 ;
         

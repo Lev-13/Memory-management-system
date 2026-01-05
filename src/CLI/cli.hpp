@@ -125,10 +125,13 @@ struct cli{
                     else{
                         if( l2_cache != NULL ){
                             if( l2_cache->read( address ) ){
+                                l1_cache->insert( address ) ;
                                 cout << "Found in l2 cache" << endl ; 
                             }
                         }
                         else{
+                            if( l1_cache != NULL ) l1_cache->insert( address ) ;
+                            if( l2_cache != NULL ) l2_cache->insert( address ) ;
                             cout << "Found in memory" << endl ;
                         }
                     }
@@ -136,10 +139,13 @@ struct cli{
                 else{
                     if( l2_cache != NULL ){
                         if( l2_cache->read( address ) ){
+                            l1_cache->insert( address ) ;
                             cout << "Found in l2 cache" << endl ; 
                         }
                     }
                     else{
+                        if( l1_cache != NULL ) l1_cache->insert( address ) ;
+                        if( l2_cache != NULL ) l2_cache->insert( address ) ;
                         cout << "Found in memory" << endl ;
                     }
                 }
