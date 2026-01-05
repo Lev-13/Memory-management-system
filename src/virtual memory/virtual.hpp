@@ -66,7 +66,7 @@ struct virtual_memory{
         int offset = virtual_address % page_size ;
 
         if (!page_table.table[vpn].valid) {
-            handle_page_fault( vpn ) ; 
+            return handle_page_fault( vpn , offset ) ; 
         }
 
         int f_num = page_table.table[vpn].frame_num ;
@@ -86,7 +86,7 @@ struct virtual_memory{
 
     } 
 
-    void handle_page_fault( int vpn ){
+    int handle_page_fault( int vpn , int offset ){
 
         bool empty_frame = 0 ;
 
@@ -120,8 +120,10 @@ struct virtual_memory{
 
         lru_queue.push_back( target_frame ) ;
 
+        return target_frame * page_size + offset ;
     }
 
+    
 
 };
 
