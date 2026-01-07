@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../cache/cache.hpp"
+#include "../virtual memory/virtual.hpp"
 #include <vector>
 #include <string>
 using namespace std ;
@@ -35,6 +36,7 @@ struct cli{
         Memory* memory = NULL ;
         cachelevel* l1_cache = NULL ;
         cachelevel* l2_cache = NULL ;
+        virtual_memory *vmem = NULL ; 
 
         while( getline( cin , cmd ) ){
             
@@ -113,10 +115,19 @@ struct cli{
                 }
 
             }
+
+            if( split[ 0 ] == "init" && split[ 1 ] == "vmem" ){
+
+                int v_size = stoi(split[2]);
+                int p_size = stoi(split[3]);
+                int pg_size = stoi(split[4]);
+                vmem = new virtual_memory(v_size, p_size, pg_size) ;
+
+            }
             
             if( split[ 0 ] == "read" ){
 
-                int address = stoi( split[ 1 ] ) ;
+                int address = vmem->translate( stoi( split[ 1 ] ) ) ;
 
                 if( l1_cache != NULL ){
                     if( l1_cache->read( address ) ){

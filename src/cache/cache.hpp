@@ -109,6 +109,7 @@ struct cachelevel{
         return ( double )hits / ( hits + misses ) ;
     }
 
+    
 
 
 

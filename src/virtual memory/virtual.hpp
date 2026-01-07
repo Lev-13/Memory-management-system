@@ -44,7 +44,10 @@ struct virtual_memory{
 
     int pmem_size ;
     int num_frames ;
-    
+
+    int page_hit = 0 ;
+    int page_fault = 0 ;
+
     PageTable page_table ; 
     deque < int > lru_queue ;
     vector < frame > ram ;
@@ -68,7 +71,7 @@ struct virtual_memory{
         if (!page_table.table[vpn].valid) {
             return handle_page_fault( vpn , offset ) ; 
         }
-
+        page_hit ++ ;
         int f_num = page_table.table[vpn].frame_num ;
 
         for( auto it = lru_queue.begin() ; it != lru_queue.end() ; it++ ){
@@ -87,6 +90,8 @@ struct virtual_memory{
     } 
 
     int handle_page_fault( int vpn , int offset ){
+        
+        page_fault ++ ;
 
         bool empty_frame = 0 ;
 
@@ -121,6 +126,18 @@ struct virtual_memory{
         lru_queue.push_back( target_frame ) ;
 
         return target_frame * page_size + offset ;
+    }
+
+    void hit_ratio(){
+
+        cout << "Hit Ratio of Page hit and Page fault is: " ;
+        if( page_fault + page_hit == 0 ){
+            cout << 0 << endl ;
+        }
+        else{
+            cout << 100*float( page_hit ) / ( page_fault + page_hit ) ;
+        }
+        
     }
 
     
