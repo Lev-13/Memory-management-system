@@ -1,0 +1,18 @@
+init memory 1024
+init vmem 4096 1024 256
+init cache 1 64 8 2
+init cache 2 128 8 4
+malloc 100
+malloc 200
+malloc 50
+free 1
+malloc 30
+read 512
+read 512
+read 513
+read 514
+read 1024
+read 2048
+read 3072
+stats
+exit

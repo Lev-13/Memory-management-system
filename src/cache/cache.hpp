@@ -1,3 +1,5 @@
+#ifndef CACHE_HPP
+#define CACHE_HPP
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -63,6 +65,8 @@ struct cachelevel{
         cacheline to_insert( tag , 0 ) ;
         cache[ set ].push_front(  to_insert ) ;
 
+        cout << address << " inserted at " << set << endl ;
+
     }
 
 
@@ -72,13 +76,16 @@ struct cachelevel{
 
         int tag = address >> ( offset_bits + set_bits ) ;
         bool found = 0 ;
+
         for (auto it = cache[set].begin(); it != cache[set].end(); ++it) 
         {
+            cout << "*" << endl ;
             if (it->tag == tag) {
                 cacheline hit_line = *it;
                 cache[set].erase(it);
                 cache[set].push_front(hit_line);
                 found = 1 ;
+                break ;
             }
         }
 
@@ -114,3 +121,5 @@ struct cachelevel{
 
 
 };
+
+#endif

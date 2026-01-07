@@ -1,3 +1,5 @@
+#ifndef VIRTUAL_HPP
+#define VIRTUAL_HPP
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -137,11 +139,19 @@ struct virtual_memory{
         else{
             cout << 100*float( page_hit ) / ( page_fault + page_hit ) ;
         }
-        
+
+    }
+
+    void stats_report() {
+        float ratio = (page_hit + page_fault == 0) ? 0 : (float)page_hit / (page_hit + page_fault);
+        cout << "  Page Hits: " << page_hit << endl;
+        cout << "  Page Faults: " << page_fault << endl;
+        cout << "  Page Table Accuracy: " << ratio * 100 << "%" << endl;
     }
 
     
 
 };
 
+#endif
 

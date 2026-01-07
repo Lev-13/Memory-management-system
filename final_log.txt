@@ -1,0 +1,257 @@
+> ------------------
+Command given: init memory 1024
+ 1 init
+memory of size 1024 created 
+ 2 init
+ 2 init
+ 3 init
+ 4 init
+init
+------------------
+------------------
+Command given: init vmem 4096 1024 256
+ 1 init
+ 2 init
+ 2 init
+ 3 init
+ 4 init
+init
+Virtual is initiallisze 
+------------------
+------------------
+Command given: init cache 1 64 8 2
+ 1 init
+ 2 init
+ 2 init
+ 3 init
+ 4 init
+init
+cache reached
+------------------
+------------------
+Command given: init cache 2 128 8 4
+ 1 init
+ 2 init
+ 2 init
+ 3 init
+ 4 init
+init
+cache reached
+------------------
+------------------
+Command given: malloc 100
+ 1 malloc
+ 2 malloc
+ 2 malloc
+Allocated memory 100
+ 3 malloc
+ 4 malloc
+malloc
+------------------
+------------------
+Command given: malloc 200
+ 1 malloc
+ 2 malloc
+ 2 malloc
+Allocated memory 200
+ 3 malloc
+ 4 malloc
+malloc
+------------------
+------------------
+Command given: malloc 50
+ 1 malloc
+ 2 malloc
+ 2 malloc
+Allocated memory 50
+ 3 malloc
+ 4 malloc
+malloc
+------------------
+------------------
+Command given: free 1
+ 1 free
+ 2 free
+ 2 free
+ 3 free
+free reached
+ 4 free
+free
+------------------
+------------------
+Command given: malloc 30
+ 1 malloc
+ 2 malloc
+ 2 malloc
+Allocated memory 30
+ 3 malloc
+ 4 malloc
+malloc
+------------------
+------------------
+Command given: read 512
+ 1 read
+ 2 read
+ 2 read
+ 3 read
+ 4 read
+read
+
+--- Memory Access Log ---
+Virtual Address: 512
+[Step 2] Translation: VPN 2 -> Frame 3 (PA: 768)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+768 inserted at 0
+768 inserted at 0
+------------------
+------------------
+Command given: read 512
+ 1 read
+ 2 read
+ 2 read
+ 3 read
+ 4 read
+read
+
+--- Memory Access Log ---
+Virtual Address: 512
+[Step 2] Translation: VPN 2 -> Frame 3 (PA: 768)
+Probing Cache Hierarchy...
+*
+  >> L1 Cache: HIT
+------------------
+------------------
+Command given: read 513
+ 1 read
+ 2 read
+ 2 read
+ 3 read
+ 4 read
+read
+
+--- Memory Access Log ---
+Virtual Address: 513
+[Step 2] Translation: VPN 2 -> Frame 3 (PA: 769)
+Probing Cache Hierarchy...
+*
+  >> L1 Cache: HIT
+------------------
+------------------
+Command given: read 514
+ 1 read
+ 2 read
+ 2 read
+ 3 read
+ 4 read
+read
+
+--- Memory Access Log ---
+Virtual Address: 514
+[Step 2] Translation: VPN 2 -> Frame 3 (PA: 770)
+Probing Cache Hierarchy...
+*
+  >> L1 Cache: HIT
+------------------
+------------------
+Command given: read 1024
+ 1 read
+ 2 read
+ 2 read
+ 3 read
+ 4 read
+read
+
+--- Memory Access Log ---
+Virtual Address: 1024
+[Step 2] Translation: VPN 4 -> Frame 2 (PA: 512)
+Probing Cache Hierarchy...
+*
+  >> L1 Cache: MISS
+*
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+512 inserted at 0
+512 inserted at 0
+------------------
+------------------
+Command given: read 2048
+ 1 read
+ 2 read
+ 2 read
+ 3 read
+ 4 read
+read
+
+--- Memory Access Log ---
+Virtual Address: 2048
+[Step 2] Translation: VPN 8 -> Frame 1 (PA: 256)
+Probing Cache Hierarchy...
+*
+*
+  >> L1 Cache: MISS
+*
+*
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+256 inserted at 0
+256 inserted at 0
+------------------
+------------------
+Command given: read 3072
+ 1 read
+ 2 read
+ 2 read
+ 3 read
+ 4 read
+read
+
+--- Memory Access Log ---
+Virtual Address: 3072
+[Step 2] Translation: VPN 12 -> Frame 0 (PA: 0)
+Probing Cache Hierarchy...
+*
+*
+  >> L1 Cache: MISS
+*
+*
+*
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+0 inserted at 0
+0 inserted at 0
+------------------
+------------------
+Command given: stats
+ 1 stats
+ 2 stats
+ 2 stats
+ 3 stats
+ 4 stats
+stats
+
+========== SYSTEM STATISTICS ==========
+[Allocator Statistics]
+Total memory 1024
+Free memory 744
+Allocated memory 280
+External Fragmentation 100
+
+[Virtual Memory Statistics]
+  Page Hits: 3
+  Page Faults: 4
+  Page Table Accuracy: 42.8571%
+
+[L1 Cache Statistics]
+  Hits: 3 | Misses: 4 | Ratio: 42.8571%
+
+[L2 Cache Statistics]
+  Hits: 0 | Misses: 4 | Ratio: 0%
+=======================================
+
+------------------
+------------------
+Command given: exit
+End
