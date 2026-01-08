@@ -65,8 +65,6 @@ struct cachelevel{
         cacheline to_insert( tag , 0 ) ;
         cache[ set ].push_front(  to_insert ) ;
 
-        cout << address << " inserted at " << set << endl ;
-
     }
 
 
@@ -79,7 +77,6 @@ struct cachelevel{
 
         for (auto it = cache[set].begin(); it != cache[set].end(); ++it) 
         {
-            cout << "*" << endl ;
             if (it->tag == tag) {
                 cacheline hit_line = *it;
                 cache[set].erase(it);

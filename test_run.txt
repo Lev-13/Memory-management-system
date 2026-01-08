@@ -1,18 +1,105 @@
-init memory 1024
-init vmem 4096 1024 256
-init cache 1 64 8 2
-init cache 2 128 8 4
-malloc 100
-malloc 200
-malloc 50
+init memory 8192
+init vmem 32768 8192 1024
+init cache 1 256 32 2
+init cache 2 1024 32 8
+set allocator first
+malloc 1024
+malloc 1024
+malloc 1024
+malloc 1024
+malloc 1024
+malloc 1024
+malloc 1024
+malloc 1024
+free 0
+free 2
+free 4
+free 6
+malloc 512
+malloc 512
+malloc 512
+malloc 512
+malloc 256
+malloc 256
 free 1
-malloc 30
-read 512
-read 512
-read 513
-read 514
+malloc 1000
+dump
+read 1024
+read 1024
+read 1056
+read 1088
+read 1120
+read 2048
+read 2080
+read 2112
+read 3072
+read 4096
+read 5120
+read 6144
+read 7168
+read 8192
+read 9216
+read 10240
+read 11264
+read 12288
+read 13312
+read 14336
+read 15360
 read 1024
 read 2048
 read 3072
+read 16384
+read 17408
+read 18432
+read 19456
+read 20480
+read 21504
+read 22528
+read 23552
+read 24576
+read 25600
+read 26624
+read 27648
+read 28672
+read 29696
+read 30720
+read 31744
+read 0
+read 1024
+read 2048
+read 4096
+read 8192
+read 16384
+read 30000
+read 30032
+read 30064
+read 30096
+read 512
+read 1536
+read 2560
+read 3584
+read 4608
+read 5632
+read 6656
+read 7680
+read 8704
+read 9728
+read 10752
+read 11776
+read 12800
+read 13824
+read 14848
+read 15872
+read 256
+read 1280
+read 2304
+read 3328
+read 4352
+read 5376
+read 6384
+read 1024
+read 1056
+read 1024
+dump
 stats
 exit

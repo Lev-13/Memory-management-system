@@ -1,257 +1,639 @@
-> ------------------
-Command given: init memory 1024
- 1 init
-memory of size 1024 created 
- 2 init
- 2 init
- 3 init
- 4 init
-init
-------------------
-------------------
-Command given: init vmem 4096 1024 256
- 1 init
- 2 init
- 2 init
- 3 init
- 4 init
-init
-Virtual is initiallisze 
-------------------
-------------------
-Command given: init cache 1 64 8 2
- 1 init
- 2 init
- 2 init
- 3 init
- 4 init
-init
-cache reached
-------------------
-------------------
-Command given: init cache 2 128 8 4
- 1 init
- 2 init
- 2 init
- 3 init
- 4 init
-init
-cache reached
-------------------
-------------------
-Command given: malloc 100
- 1 malloc
- 2 malloc
- 2 malloc
-Allocated memory 100
- 3 malloc
- 4 malloc
-malloc
-------------------
-------------------
-Command given: malloc 200
- 1 malloc
- 2 malloc
- 2 malloc
-Allocated memory 200
- 3 malloc
- 4 malloc
-malloc
-------------------
-------------------
-Command given: malloc 50
- 1 malloc
- 2 malloc
- 2 malloc
-Allocated memory 50
- 3 malloc
- 4 malloc
-malloc
-------------------
-------------------
-Command given: free 1
- 1 free
- 2 free
- 2 free
- 3 free
-free reached
- 4 free
-free
-------------------
-------------------
-Command given: malloc 30
- 1 malloc
- 2 malloc
- 2 malloc
-Allocated memory 30
- 3 malloc
- 4 malloc
-malloc
-------------------
-------------------
-Command given: read 512
- 1 read
- 2 read
- 2 read
- 3 read
- 4 read
-read
-
---- Memory Access Log ---
-Virtual Address: 512
-[Step 2] Translation: VPN 2 -> Frame 3 (PA: 768)
-Probing Cache Hierarchy...
-  >> L1 Cache: MISS
-  >> L2 Cache: MISS
-Accessing Physical RAM...
-768 inserted at 0
-768 inserted at 0
-------------------
-------------------
-Command given: read 512
- 1 read
- 2 read
- 2 read
- 3 read
- 4 read
-read
-
---- Memory Access Log ---
-Virtual Address: 512
-[Step 2] Translation: VPN 2 -> Frame 3 (PA: 768)
-Probing Cache Hierarchy...
-*
-  >> L1 Cache: HIT
-------------------
-------------------
-Command given: read 513
- 1 read
- 2 read
- 2 read
- 3 read
- 4 read
-read
-
---- Memory Access Log ---
-Virtual Address: 513
-[Step 2] Translation: VPN 2 -> Frame 3 (PA: 769)
-Probing Cache Hierarchy...
-*
-  >> L1 Cache: HIT
-------------------
-------------------
-Command given: read 514
- 1 read
- 2 read
- 2 read
- 3 read
- 4 read
-read
-
---- Memory Access Log ---
-Virtual Address: 514
-[Step 2] Translation: VPN 2 -> Frame 3 (PA: 770)
-Probing Cache Hierarchy...
-*
-  >> L1 Cache: HIT
-------------------
-------------------
-Command given: read 1024
- 1 read
- 2 read
- 2 read
- 3 read
- 4 read
-read
-
+> memory of size 8192 created 
+> Virtual is initiallisze 
+> cache reached
+> cache reached
+> Allocator set
+> Allocated memory 1024
+> Allocated memory 1024
+> Allocated memory 1024
+> Allocated memory 1024
+> Allocated memory 1024
+> Allocated memory 1024
+> Allocated memory 1024
+> Allocated memory 1024
+> free reached
+No memory block with Id: 0 found
+> free reached
+> free reached
+> free reached
+> Allocated memory 512
+> Allocated memory 512
+> Allocated memory 512
+> Allocated memory 512
+> Allocated memory 256
+> Allocated memory 256
+> free reached
+> Allocated memory 1000
+> dump reached 
+Memory alloted from: 0 to: 999 to user with ID: 15
+Free memory from: 1000 to: 1023
+Memory alloted from: 1024 to: 1535 to user with ID: 9
+Memory alloted from: 1536 to: 2047 to user with ID: 10
+Memory alloted from: 2048 to: 3071 to user with ID: 3
+Memory alloted from: 3072 to: 3583 to user with ID: 11
+Memory alloted from: 3584 to: 4095 to user with ID: 12
+Memory alloted from: 4096 to: 5119 to user with ID: 5
+Memory alloted from: 5120 to: 5375 to user with ID: 13
+Memory alloted from: 5376 to: 5631 to user with ID: 14
+Free memory from: 5632 to: 6143
+Memory alloted from: 6144 to: 7167 to user with ID: 7
+Memory alloted from: 7168 to: 8191 to user with ID: 8
+> 
 --- Memory Access Log ---
 Virtual Address: 1024
-[Step 2] Translation: VPN 4 -> Frame 2 (PA: 512)
+[Step 2] Translation: VPN 1 -> Frame 7 (PA: 7168)
 Probing Cache Hierarchy...
-*
   >> L1 Cache: MISS
-*
   >> L2 Cache: MISS
 Accessing Physical RAM...
-512 inserted at 0
-512 inserted at 0
-------------------
-------------------
-Command given: read 2048
- 1 read
- 2 read
- 2 read
- 3 read
- 4 read
-read
-
+> 
+--- Memory Access Log ---
+Virtual Address: 1024
+[Step 2] Translation: VPN 1 -> Frame 7 (PA: 7168)
+Probing Cache Hierarchy...
+  >> L1 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 1056
+[Step 2] Translation: VPN 1 -> Frame 7 (PA: 7200)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 1088
+[Step 2] Translation: VPN 1 -> Frame 7 (PA: 7232)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 1120
+[Step 2] Translation: VPN 1 -> Frame 7 (PA: 7264)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
 --- Memory Access Log ---
 Virtual Address: 2048
-[Step 2] Translation: VPN 8 -> Frame 1 (PA: 256)
+[Step 2] Translation: VPN 2 -> Frame 6 (PA: 6144)
 Probing Cache Hierarchy...
-*
-*
   >> L1 Cache: MISS
-*
-*
   >> L2 Cache: MISS
 Accessing Physical RAM...
-256 inserted at 0
-256 inserted at 0
-------------------
-------------------
-Command given: read 3072
- 1 read
- 2 read
- 2 read
- 3 read
- 4 read
-read
-
+> 
+--- Memory Access Log ---
+Virtual Address: 2080
+[Step 2] Translation: VPN 2 -> Frame 6 (PA: 6176)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 2112
+[Step 2] Translation: VPN 2 -> Frame 6 (PA: 6208)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
 --- Memory Access Log ---
 Virtual Address: 3072
-[Step 2] Translation: VPN 12 -> Frame 0 (PA: 0)
+[Step 2] Translation: VPN 3 -> Frame 5 (PA: 5120)
 Probing Cache Hierarchy...
-*
-*
   >> L1 Cache: MISS
-*
-*
-*
   >> L2 Cache: MISS
 Accessing Physical RAM...
-0 inserted at 0
-0 inserted at 0
-------------------
-------------------
-Command given: stats
- 1 stats
- 2 stats
- 2 stats
- 3 stats
- 4 stats
-stats
-
+> 
+--- Memory Access Log ---
+Virtual Address: 4096
+[Step 2] Translation: VPN 4 -> Frame 4 (PA: 4096)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 5120
+[Step 2] Translation: VPN 5 -> Frame 3 (PA: 3072)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 6144
+[Step 2] Translation: VPN 6 -> Frame 2 (PA: 2048)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 7168
+[Step 2] Translation: VPN 7 -> Frame 1 (PA: 1024)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 8192
+[Step 2] Translation: VPN 8 -> Frame 0 (PA: 0)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 9216
+[Step 2] Translation: VPN 9 -> Frame 7 (PA: 7168)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 10240
+[Step 2] Translation: VPN 10 -> Frame 6 (PA: 6144)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 11264
+[Step 2] Translation: VPN 11 -> Frame 5 (PA: 5120)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 12288
+[Step 2] Translation: VPN 12 -> Frame 4 (PA: 4096)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 13312
+[Step 2] Translation: VPN 13 -> Frame 3 (PA: 3072)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 14336
+[Step 2] Translation: VPN 14 -> Frame 2 (PA: 2048)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 15360
+[Step 2] Translation: VPN 15 -> Frame 1 (PA: 1024)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 1024
+[Step 2] Translation: VPN 1 -> Frame 0 (PA: 0)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 2048
+[Step 2] Translation: VPN 2 -> Frame 7 (PA: 7168)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 3072
+[Step 2] Translation: VPN 3 -> Frame 6 (PA: 6144)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 16384
+[Step 2] Translation: VPN 16 -> Frame 5 (PA: 5120)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 17408
+[Step 2] Translation: VPN 17 -> Frame 4 (PA: 4096)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 18432
+[Step 2] Translation: VPN 18 -> Frame 3 (PA: 3072)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 19456
+[Step 2] Translation: VPN 19 -> Frame 2 (PA: 2048)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 20480
+[Step 2] Translation: VPN 20 -> Frame 1 (PA: 1024)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 21504
+[Step 2] Translation: VPN 21 -> Frame 0 (PA: 0)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 22528
+[Step 2] Translation: VPN 22 -> Frame 7 (PA: 7168)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 23552
+[Step 2] Translation: VPN 23 -> Frame 6 (PA: 6144)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 24576
+[Step 2] Translation: VPN 24 -> Frame 5 (PA: 5120)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 25600
+[Step 2] Translation: VPN 25 -> Frame 4 (PA: 4096)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 26624
+[Step 2] Translation: VPN 26 -> Frame 3 (PA: 3072)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 27648
+[Step 2] Translation: VPN 27 -> Frame 2 (PA: 2048)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 28672
+[Step 2] Translation: VPN 28 -> Frame 1 (PA: 1024)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 29696
+[Step 2] Translation: VPN 29 -> Frame 0 (PA: 0)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 30720
+[Step 2] Translation: VPN 30 -> Frame 7 (PA: 7168)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 31744
+[Step 2] Translation: VPN 31 -> Frame 6 (PA: 6144)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 0
+[Step 2] Translation: VPN 0 -> Frame 5 (PA: 5120)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 1024
+[Step 2] Translation: VPN 1 -> Frame 4 (PA: 4096)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 2048
+[Step 2] Translation: VPN 2 -> Frame 3 (PA: 3072)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 4096
+[Step 2] Translation: VPN 4 -> Frame 2 (PA: 2048)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 8192
+[Step 2] Translation: VPN 8 -> Frame 1 (PA: 1024)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 16384
+[Step 2] Translation: VPN 16 -> Frame 0 (PA: 0)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 30000
+[Step 2] Translation: VPN 29 -> Frame 7 (PA: 7472)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 30032
+[Step 2] Translation: VPN 29 -> Frame 7 (PA: 7504)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 30064
+[Step 2] Translation: VPN 29 -> Frame 7 (PA: 7536)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 30096
+[Step 2] Translation: VPN 29 -> Frame 7 (PA: 7568)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 512
+[Step 2] Translation: VPN 0 -> Frame 5 (PA: 5632)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 1536
+[Step 2] Translation: VPN 1 -> Frame 4 (PA: 4608)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 2560
+[Step 2] Translation: VPN 2 -> Frame 3 (PA: 3584)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 3584
+[Step 2] Translation: VPN 3 -> Frame 6 (PA: 6656)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 4608
+[Step 2] Translation: VPN 4 -> Frame 2 (PA: 2560)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 5632
+[Step 2] Translation: VPN 5 -> Frame 1 (PA: 1536)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 6656
+[Step 2] Translation: VPN 6 -> Frame 0 (PA: 512)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 7680
+[Step 2] Translation: VPN 7 -> Frame 7 (PA: 7680)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 8704
+[Step 2] Translation: VPN 8 -> Frame 5 (PA: 5632)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 9728
+[Step 2] Translation: VPN 9 -> Frame 4 (PA: 4608)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 10752
+[Step 2] Translation: VPN 10 -> Frame 3 (PA: 3584)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 11776
+[Step 2] Translation: VPN 11 -> Frame 6 (PA: 6656)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 12800
+[Step 2] Translation: VPN 12 -> Frame 2 (PA: 2560)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 13824
+[Step 2] Translation: VPN 13 -> Frame 1 (PA: 1536)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 14848
+[Step 2] Translation: VPN 14 -> Frame 0 (PA: 512)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 15872
+[Step 2] Translation: VPN 15 -> Frame 7 (PA: 7680)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: HIT
+> 
+--- Memory Access Log ---
+Virtual Address: 256
+[Step 2] Translation: VPN 0 -> Frame 5 (PA: 5376)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 1280
+[Step 2] Translation: VPN 1 -> Frame 4 (PA: 4352)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 2304
+[Step 2] Translation: VPN 2 -> Frame 3 (PA: 3328)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 3328
+[Step 2] Translation: VPN 3 -> Frame 6 (PA: 6400)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 4352
+[Step 2] Translation: VPN 4 -> Frame 2 (PA: 2304)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 5376
+[Step 2] Translation: VPN 5 -> Frame 1 (PA: 1280)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 6384
+[Step 2] Translation: VPN 6 -> Frame 0 (PA: 240)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 1024
+[Step 2] Translation: VPN 1 -> Frame 4 (PA: 4096)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 1056
+[Step 2] Translation: VPN 1 -> Frame 4 (PA: 4128)
+Probing Cache Hierarchy...
+  >> L1 Cache: MISS
+  >> L2 Cache: MISS
+Accessing Physical RAM...
+> 
+--- Memory Access Log ---
+Virtual Address: 1024
+[Step 2] Translation: VPN 1 -> Frame 4 (PA: 4096)
+Probing Cache Hierarchy...
+  >> L1 Cache: HIT
+> dump reached 
+Memory alloted from: 0 to: 999 to user with ID: 15
+Free memory from: 1000 to: 1023
+Memory alloted from: 1024 to: 1535 to user with ID: 9
+Memory alloted from: 1536 to: 2047 to user with ID: 10
+Memory alloted from: 2048 to: 3071 to user with ID: 3
+Memory alloted from: 3072 to: 3583 to user with ID: 11
+Memory alloted from: 3584 to: 4095 to user with ID: 12
+Memory alloted from: 4096 to: 5119 to user with ID: 5
+Memory alloted from: 5120 to: 5375 to user with ID: 13
+Memory alloted from: 5376 to: 5631 to user with ID: 14
+Free memory from: 5632 to: 6143
+Memory alloted from: 6144 to: 7167 to user with ID: 7
+Memory alloted from: 7168 to: 8191 to user with ID: 8
+> 
 ========== SYSTEM STATISTICS ==========
 [Allocator Statistics]
-Total memory 1024
-Free memory 744
-Allocated memory 280
+Total memory 8192
+Free memory 536
+Allocated memory 7656
 External Fragmentation 100
 
 [Virtual Memory Statistics]
-  Page Hits: 3
-  Page Faults: 4
-  Page Table Accuracy: 42.8571%
+  Page Hits: 16
+  Page Faults: 60
+  Page Table Accuracy: 21.0526%
 
 [L1 Cache Statistics]
-  Hits: 3 | Misses: 4 | Ratio: 42.8571%
+  Hits: 2 | Misses: 74 | Ratio: 2.63158%
 
 [L2 Cache Statistics]
-  Hits: 0 | Misses: 4 | Ratio: 0%
+  Hits: 40 | Misses: 34 | Ratio: 54.0541%
 =======================================
 
-------------------
-------------------
-Command given: exit
-End
+> End

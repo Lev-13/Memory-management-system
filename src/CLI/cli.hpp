@@ -32,7 +32,6 @@ struct cli{
 
     void run(){
         string cmd ;
-        cout << "> " ;
         
         int allocator = 1 ;
         Memory* memory = NULL ;
@@ -42,8 +41,7 @@ struct cli{
 
         while( getline(cin, cmd) ){
             
-            cout << "------------------" << endl ;
-            cout << "Command given: "<< cmd << endl ;
+            cout << "> " ;
             if( cmd == "exit" ){
                 cout << "End" << endl ;
                 break; 
@@ -195,8 +193,6 @@ struct cli{
             }
 
             
-            cout << "------------------" << endl ;
-
         }
 
 
